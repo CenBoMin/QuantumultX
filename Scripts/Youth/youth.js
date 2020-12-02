@@ -1,78 +1,15 @@
-/*
-更新时间: 2020-11-26 10:00
-赞赏:中青邀请码`46308484`,农妇山泉 -> 有点咸，万分感谢
-本脚本仅适用于中青看点极速版领取青豆
-
-获取Cookie方法:
-1.将下方[rewrite_local]和[MITM]地址复制的相应的区域
-下，运行时间自行配置
-2. 获取Cookie方法，可随时更新
- ① 进入app，进入任务中心或者签到一次,即可获取Cookie. 
- ② 阅读一篇文章，获取阅读请求body，
- ③ 同时获取阅读时长，
- ④ 在阅读文章最下面有个惊喜红包，点击获取惊喜红包请求
-3.增加转盘抽奖通知间隔，为了照顾新用户，前三次会有通知，以后默认每50次转盘抽奖通知一次，可自行修改❗️ 转盘完成后通知会一直开启
-4.非专业人士制作，欢迎各位大佬提出宝贵意见和指导
-5.增加每日打卡，打卡时间每日5:00-8:00❗️，请不要忘记设置运行时间，共4条Cookie，请全部获取，获取请注释
-6. 支持Github Actions多账号运行，填写'YOUTH_HEADER'值多账号时用'#'号隔开，其余值均用'&'分割  ‼️，当转盘次数为50或者100并且余额大于10元时推送通知
-
-~~~~~~~~~~~~~~~~
-Surge 4.0 :
-[Script]
-中青看点 = type=cron,cronexp=35 5 0 * * *,script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js,script-update-interval=0
-
-中青看点 = type=http-request,pattern=https:\/\/\w+\.youth\.cn\/TaskCenter\/(sign|getSign),script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js
-
-中青看点 = type=http-request,pattern=https:\/\/ios\.baertt\.com\/v5\/article\/complete,script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js, requires-body=true
-
-中青看点 = type=http-request,pattern=https:\/\/ios\.baertt\.com\/v5\/article\/red_packet,script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js, requires-body=true
-
-中青看点 = type=http-request,pattern=https:\/\/ios\.baertt\.com\/v5\/user\/app_stay\.json,script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js, requires-body=true
-
-~~~~~~~~~~~~~~~~
-Loon 2.1.0+
-[Script]
-# 本地脚本
-cron "04 00 * * *" script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js, enabled=true, tag=中青看点
-
-http-request https:\/\/\w+\.youth\.cn\/TaskCenter\/(sign|getSign) script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js
-http-request https:\/\/ios\.baertt\.com\/v5\/article\/complete script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js, requires-body=true
-http-request https:\/\/ios\.baertt\.com\/v5\/article\/red_packet script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js, requires-body=true
-http-request https:\/\/ios\.baertt\.com\/v5\/user\/app_stay\.json script-path=https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js, requires-body=true
------------------
-QX 1.0. 7+ :
-[task_local]
-0 9 * * * youth.js
-
-[rewrite_local]
-https:\/\/\w+\.youth\.cn\/TaskCenter\/(sign|getSign) url script-request-header youth.js
-
-https?:\/\/ios\.baertt\.com\/v5\/article\/complete url script-request-body youth.js
-
-https:\/\/ios\.baertt\.com\/v5\/article\/red_packet url script-request-body youth.js
-
-https:\/\/ios\.baertt\.com\/v5\/user\/app_stay\.json url script-request-body youth.js
-
-
-~~~~~~~~~~~~~~~~
-[MITM]
-hostname = *.youth.cn, ios.baertt.com 
-~~~~~~~~~~~~~~~~
-
-*/
-
 let s = 200 //各数据接口延迟
 const $ = new Env("中青看点")
 let notifyInterval = $.getdata("notifytimes")||50 //通知间隔，默认抽奖每50次通知一次，如需关闭全部通知请设为0
 const YOUTH_HOST = "https://kd.youth.cn/WebApi/";
 const notify = $.isNode() ? require('./sendNotify') : '';
-let logs = $.getdata('zqlogs')||false, signresult; 
+let logs = $.getdata('zqlogs')||false, signresult;
 let cookiesArr = [], signheaderVal = '',
     readArr = [], articlebodyVal ='',
     timeArr = [], timebodyVal = '',
     redpArr = [], redpbodyVal = '',
     detail = ``, subTitle = ``;
-let CookieYouth = [], ARTBODYs = [], 
+let CookieYouth = [], ARTBODYs = [],
     REDBODYs  = [], READTIME = [];
 if ($.isNode()) {
   if (process.env.YOUTH_HEADER && process.env.YOUTH_HEADER.indexOf('#') > -1) {
@@ -80,26 +17,26 @@ if ($.isNode()) {
   } else {
       CookieYouth = process.env.YOUTH_HEADER.split()
   };
-  
+
   if (process.env.YOUTH_ARTBODY && process.env.YOUTH_ARTBODY.indexOf('&') > -1) {
   ARTBODYs = process.env.YOUTH_ARTBODY.split('&');
   } else {
       ARTBODYs = process.env.YOUTH_ARTBODY.split()
   };
-  
+
   if (process.env.YOUTH_REDBODY && process.env.YOUTH_REDBODY.indexOf('&') > -1) {
   REDBODYs = process.env.YOUTH_REDBODY.split('&');
   } else {
       REDBODYs = process.env.YOUTH_REDBODY.split()
   };
-  
+
   if (process.env.YOUTH_TIME && process.env.YOUTH_TIME.indexOf('&') > -1) {
   READTIME = process.env.YOUTH_TIME.split('&');
   }else {
       READTIME = process.env.YOUTH_TIME.split()
   };
 }
-    
+
 if ($.isNode()) {
     Object.keys(CookieYouth).forEach((item) => {
         if (CookieYouth[item]) {
@@ -138,7 +75,7 @@ const opboxtime = $.getdata('opbox');
 if (isGetCookie = typeof $request !== 'undefined') {
    GetCookie();
    $.done()
-} 
+}
 
  !(async () => {
   if (!cookiesArr[0]) {
@@ -239,14 +176,14 @@ function sign() {
                 signresult = `【签到结果】重复`;
                 detail = "";
               if(runtimes!==undefined){
-              $.setdata(`${parseInt(runtimes)+1}`,'times')  
+              $.setdata(`${parseInt(runtimes)+1}`,'times')
               }
             }
-           resolve() 
+           resolve()
         })
     })
 }
-      
+
 function signInfo() {
     return new Promise((resolve, reject) => {
         const infourl = {
@@ -356,9 +293,9 @@ function SevCont() {
             }, async(error, response, data) => {
                 sevres = JSON.parse(data)
                 if (sevres.code == 1) {
-          
+
                     detail += `【七日签到】+${sevres.data.score}青豆 \n`
-          
+
                 }else if (sevres.code == 0){
                      //detail += `【七日签到】${sevres.msg}\n`
                    // $.log(`${boxres.msg}`)
@@ -419,7 +356,7 @@ function boxshare() {
                 headers: JSON.parse(signheaderVal),
             }
             $.post(url, (error, response, data) => {
-   
+
                 shareres = JSON.parse(data)
                 if (shareres.code == 1) {
                     detail += `【宝箱分享】+${shareres.data.score}青豆\n`
@@ -433,7 +370,7 @@ function boxshare() {
     })
 }
 
-function Invitant2() {      
+function Invitant2() {
  return new Promise((resolve, reject) => {
    $.post({ url: `${YOUTH_HOST}User/fillCode`,headers: JSON.parse(signheaderVal),body: `{"code": "46746961"}`
 }, (error, response, data) =>
@@ -536,7 +473,7 @@ function readArticle() {
            readres = JSON.parse(data);
      if (typeof readres.items.read_score === 'number')  {
               detail += `【阅读奖励】+${readres.items.read_score}个青豆\n`;
-            } 
+            }
     //else if (readres.items.max_notice == '\u770b\u592a\u4e45\u4e86\uff0c\u63621\u7bc7\u8bd5\u8bd5') {
               //detail += `【阅读奖励】看太久了，换1篇试试\n`;
          //  $.log(readres.items.max_notice)}
@@ -680,7 +617,7 @@ function TurnDouble() {
                     detail += `【转盘双倍】+${Doubleres.data.score1}青豆 剩余${rotaryres.data.doubleNum}次\n`
                 }else{
                     //detail += `【转盘双倍】失败 ${Doubleres.msg}\n`
-     
+
                 }
             })
          resolve()
@@ -716,7 +653,7 @@ async function showmsg() {
         }else if (rotaryres.code == 10010 && notifyInterval != 0) {
          rotarynum = ` 转盘${rotaryres.msg}🎉`
          $.msg($.name+"  "+nick+" "+rotarynum,subTitle,detail)//任务全部完成且通知间隔不为0时通知;
-        } 
+        }
      else {
        console.log(`【收益总计】${signinfo.data.user.score}青豆  现金约${cash}元\n`+ detail)
    }
