@@ -600,7 +600,16 @@ resolve()
    })
   }
 
+  #打印qqreadheader+readtimeurl+qqreadtimeheader 用于Github Actions
 
+  tz+=
+  '【qqreadheader】:'console.log(qqreadheaderVal）
+
+  tz+=
+  '【qqreadtimeurl】:'console.log(qqreadtimeurlVal）
+
+  tz+=
+  '【qqreadtimeheader】:'console.log(qqreadtimeheaderVal）
 
 
 
@@ -625,16 +634,7 @@ $.msg(jsname,'',tz)//宝箱每18次通知一次
 
 }
 
-#打印qqreadheader+readtimeurl+qqreadtimeheader 用于Github Actions
 
-tz+=
-'【qqreadheader】:'console.log(qqreadheaderVal）
-
-tz+=
-'【qqreadtimeurl】:'console.log(qqreadtimeurlVal）
-
-tz+=
-'【qqreadtimeheader】:'console.log(qqreadtimeheaderVal）
 
 
 console.log(qqreadheaderVal+'\n\n'+qqreadtimeurlVal+'\n\n'+qqreadtimeheaderVal)
