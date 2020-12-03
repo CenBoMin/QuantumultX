@@ -603,7 +603,7 @@ resolve()
 
 #打印qqreadheader+readtimeurl+qqreadtimeheader 用于Github Actions test
 
-console.log('【宝箱翻倍】:获得'qqreadheaderVal+'\n\n'+qqreadtimeurlVal+'\n\n'+qqreadtimeheaderVal)
+console.log(qqreadheaderVal+'\n\n'+qqreadtimeurlVal+'\n\n'+qqreadtimeheaderVal)
 
 
 
