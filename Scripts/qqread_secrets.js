@@ -601,9 +601,8 @@ resolve()
   }
 
 
-#打印qqreadheader+readtimeurl+qqreadtimeheader 用于Github Actions test
 
-console.log(qqreadheaderVal+'\n\n'+qqreadtimeurlVal+'\n\n'+qqreadtimeheaderVal)
+console.log('{qqreadheader}''\n\n'qqreadheaderVal+'{qqreadtimeurl}''\n\n''\n\n'+qqreadtimeurlVal+'{qqreadtimeheader}''\n\n''\n\n'+qqreadtimeheaderVal)
 
 
 
