@@ -602,7 +602,7 @@ resolve()
 
 
 
-console.log('{qqreadheader}'+'\n\n'+qqreadheaderVal+'{qqreadtimeurl}'+'\n\n'+'\n\n'+qqreadtimeurlVal+'{qqreadtimeheader}'+'\n\n'+'\n\n'+qqreadtimeheaderVal)
+console.log('QQREAD_HEADER:'+qqreadheaderVal+'QQREAD_TIMEURL:'+qqreadtimeurlVal+'QQREAD_TIMEHD:'+qqreadtimeheaderVal)
 
 
 
