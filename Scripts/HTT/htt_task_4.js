@@ -89,7 +89,7 @@ function main()
 
 htt_main();
 
-  
+
 
 }
 
@@ -140,7 +140,7 @@ function htt_daysign()
 var tt=huitoutiao;
 const llUrl1 = {url:"https://api.cashtoutiao.com/frontend/sign?"+htt_signurlck,headers:{"Content-Type":"application/json","User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"},body:htt_signbd};var signjs=JSON.parse(htt_signbd);signjs["code"]=sign("%3Dhdfefni");const llUrl2 = {url:"https://api.cashtoutiao.com/frontend/invite?"+htt_signurlck,headers:{"Content-Type":"application/json","User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"},body:signjs};
  $iosrule.post(llUrl1, function(error, response, data) {
-    
+
        if(log==1) console.log(data)
     var obj=JSON.parse(data)
 
@@ -181,7 +181,7 @@ var tt=huitoutiao;
     const llUrl1 = {url:"https://api.cashtoutiao.com/frontend/sign/record?"+htt_signurlck,headers:{"Content-Type":"application/json","User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"},body:htt_signbd,timeout:60};
 
  $iosrule.post(llUrl1, function(error, response, data) {
-   
+
     if(log==1) console.log(data)
     var obj=JSON.parse(data)
 
@@ -299,7 +299,7 @@ var tt=huitoutiao;
     const llUrl1 = {url:"https://api.cashtoutiao.com/frontend/read/detail/today?"+htt_signurlck,headers:{"Content-Type":"application/json","User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"},body:htt_signbd,timeout:60};
 
  $iosrule.post(llUrl1, function(error, response, data) {
-   
+
     var obj=JSON.parse(data)
 
    if(obj.statusCode==200)
@@ -312,7 +312,7 @@ var tt=huitoutiao;
    htt_msg(result1+"\n"+result2+"\n");
 ;}})
 }
-   
+
 
 
 
@@ -377,7 +377,7 @@ setTimeout(function(){
 
 
 
-  
+
 function htt_find(bd) {
 if(JSON.parse(bd).hasOwnProperty("token"))
   {bd=JSON.parse(bd);delete bd["token"];bd=JSON.stringify(bd);
@@ -396,7 +396,7 @@ formatSeconds(value) {
     let h = Math.floor(result / 3600) < 10 ? '0' + Math.floor(result / 3600) : Math.floor(result / 3600);
     let m = Math.floor((result / 60 % 60)) < 10 ? '0' + Math.floor((result / 60 % 60)) : Math.floor((result / 60 % 60));
     let s = Math.floor((result % 60)) < 10 ? '0' + Math.floor((result % 60)) : Math.floor((result % 60));
- 
+
     let res = '';
     if(h !== '00') res += `${h}小时`;
     if(m !== '00') res += `${m}分`;
@@ -405,23 +405,23 @@ formatSeconds(value) {
   }
 
 
-  
-  
+
+
 
 
 function papa(x,y,z){
 
  $iosrule.notify(x,y,z);}
 
-function sign(code)  
-{  
-   code=unescape(code);  
-   var c=String.fromCharCode(code.charCodeAt(0)-code.length);  
-   for(var i=1;i<code.length;i++){  
-       c+=String.fromCharCode(code.charCodeAt(i)-c.charCodeAt(i-1));  
-   }  
-   return c;  
-}  
+function sign(code)
+{
+   code=unescape(code);
+   var c=String.fromCharCode(code.charCodeAt(0)-code.length);
+   for(var i=1;i<code.length;i++){
+       c+=String.fromCharCode(code.charCodeAt(i)-c.charCodeAt(i-1));
+   }
+   return c;
+}
 
 
 
@@ -469,7 +469,3 @@ function iosrule() {
     }
     return { isRequest, isQuanX, isSurge, notify, write, read, get, post, end }
 };
-
-
-
-
