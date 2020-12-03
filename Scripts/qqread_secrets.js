@@ -603,18 +603,7 @@ resolve()
 
 #打印qqreadheader+readtimeurl+qqreadtimeheader 用于Github Actions test
 
-  tz+=
-  '【qqreadheader】:'console.log(qqreadheaderVal）
-
-  tz+=
-  '【qqreadtimeurl】:'console.log(qqreadtimeurlVal）
-
-  tz+=
-  '【qqreadtimeheader】:'console.log(qqreadtimeheaderVal）
-
-
-
-
+console.log('【宝箱翻倍】:获得'qqreadheaderVal+'\n\n'+qqreadtimeurlVal+'\n\n'+qqreadtimeheaderVal)
 
 
 
@@ -638,7 +627,7 @@ $.msg(jsname,'',tz)//宝箱每18次通知一次
 
 
 
-console.log(qqreadheaderVal+'\n\n'+qqreadtimeurlVal+'\n\n'+qqreadtimeheaderVal)
+
 
 
 
