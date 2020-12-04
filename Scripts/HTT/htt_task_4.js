@@ -2,7 +2,7 @@
 
 
 const Notice=1;//设置运行多少次才通知。
-const log=0;//设置0关闭日志,1开启日志
+const log=1;//设置0关闭日志,1开启日志
 
 
 
@@ -110,7 +110,8 @@ result2="重复领取.🐜";
  }
 */
 
-function htt_daysign()
+//视频签到失效
+/*function htt_daysign()
   {
    var result1="";var result2="";
 var tt=huitoutiao;
@@ -128,6 +129,7 @@ else   if(obj.statusCode==-50)
 htt_signday(result2);}})
     $iosrule.post(llUrl2, function(error, response, data){})}
 
+*/
 
 //目前时段签到失效
 /*
@@ -327,9 +329,9 @@ function htt_coinall()
 
  {
 
- setTimeout(function(){
-   htt_daysign();
- }, 1* 100);
+ //setTimeout(function(){
+   //htt_daysign();
+ //}, 1* 100);
 
  //setTimeout(function(){
    //htt_hoursign();
