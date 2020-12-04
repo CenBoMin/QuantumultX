@@ -1,7 +1,7 @@
 
 
 
-const Notice=0;//设置运行多少次才通知。
+const Notice=1;//设置运行多少次才通知。
 const log=0;//设置0关闭日志,1开启日志
 
 
@@ -87,7 +87,8 @@ main()
 
 
 
-
+//目前每日阅读奖励 请求body失效
+/*
 function htt_taskread5()
   {
    var result1="【每日任务阅读奖励】";var result2="";
@@ -107,7 +108,7 @@ result2="重复领取.🐜";
    htt_msg(result1+"\n"+result2+"\n");
    })
  }
-
+*/
 
 function htt_daysign()
   {
@@ -330,10 +331,10 @@ function htt_coinall()
    htt_daysign();
  }, 1* 100);
 
- setTimeout(function(){
-   htt_hoursign();
-   htt_taskread5();
- }, 5* 100);
+ //setTimeout(function(){
+   //htt_hoursign();
+   //htt_taskread5();
+ //}, 5* 100);
 
  setTimeout(function(){
    htt_read_dongfang();
