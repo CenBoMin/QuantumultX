@@ -1,8 +1,8 @@
 
 
 
-const Notice=5;//设置运行多少次才通知。
-const log=1;//设置0关闭日志,1开启日志
+const Notice=0;//设置运行多少次才通知。
+const log=0;//设置0关闭日志,1开启日志
 
 
 
@@ -127,6 +127,9 @@ else   if(obj.statusCode==-50)
 htt_signday(result2);}})
     $iosrule.post(llUrl2, function(error, response, data){})}
 
+
+//目前时段签到失效
+/*
 function htt_hoursign()
   {
    var result1="【时段奖励】";var result2="";
@@ -145,7 +148,7 @@ result2="重复领取🐜";
    htt_msg(result1+"\n"+result2+"\n");
    })
  }
-
+*/
 
 
 
