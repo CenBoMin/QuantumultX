@@ -109,8 +109,8 @@ result2="重复领取.🐜";
  }
 */
 
-//视频签到失效
-/*function htt_daysign()
+
+function htt_daysign()
   {
    var result1="";var result2="";
 var tt=huitoutiao;
@@ -128,7 +128,7 @@ else   if(obj.statusCode==-50)
 htt_signday(result2);}})
     $iosrule.post(llUrl2, function(error, response, data){})}
 
-*/
+
 
 //目前时段签到失效
 /*
@@ -328,9 +328,9 @@ function htt_coinall()
 
  {
 
- //setTimeout(function(){
-   //htt_daysign();
- //}, 1* 100);
+ setTimeout(function(){
+   htt_daysign();
+ }, 1* 100);
 
  //setTimeout(function(){
    //htt_hoursign();
@@ -352,6 +352,10 @@ setTimeout(function(){
 setTimeout(function(){
   htt_readtotal();
  }, 64* 1000);
+
+setTimeout(function(){
+ htt_readtotal();
+}, 70* 1000);
 
 }
 
