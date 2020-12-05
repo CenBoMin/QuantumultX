@@ -1,7 +1,7 @@
 
 //2020.12.05 移除报错模块 时段奖励、视频签到奖励，阅读时长奖励请自行点击领取
 
-
+//
 
 
 const Notice=1;//设置运行多少次才通知。
@@ -40,7 +40,6 @@ const htt_signbd=$iosrule.read(htt_signbdname)
 var htt_num=0;var htt_result="";
 
 //++++++++++++++++++++++++++++++++
-
 
 
 
@@ -265,7 +264,6 @@ htt_msg(result1+"\n"+result2+"\n");
 
    })
  }
-
 
 
 
