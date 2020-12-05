@@ -349,10 +349,6 @@ setTimeout(function(){
    htt_read_smvideo();
  }, 63* 1000);
 
-setTimeout(function(){
-  htt_readtotal();
- }, 64* 1000);
-
 
 }
 
