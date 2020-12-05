@@ -353,9 +353,6 @@ setTimeout(function(){
   htt_readtotal();
  }, 64* 1000);
 
-setTimeout(function(){
- htt_readtotal();
-}, 70* 1000);
 
 }
 
