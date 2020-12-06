@@ -369,6 +369,7 @@ function openbox() {
     })
 }
 
+
 //宝箱分享
 function boxshare() {
     return new Promise((resolve, reject) => {
