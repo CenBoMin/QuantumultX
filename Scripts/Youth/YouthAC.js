@@ -131,21 +131,6 @@ else if ($.time('HH')>4&&$.time('HH')<8){
 console.log('YOUTH_HEADER:'+YOUTH_HEADERVal+'\n\n\n\n'+'YOUTH_ARTBODY:'+YOUTH_ARTBODYVal+'\n\n\n\n'+'YOUTH_REDBODY:'+YOUTH_REDBODYVal+'\n\n\n\n'+'YOUTH_TIME:'+YOUTH_TIMEVal)
 
 
-YOUTH_HEADER: ${{ secrets.YOUTH_HEADER }}
-        YOUTH_ARTBODY: ${{ secrets.YOUTH_ARTBODY }}
-        YOUTH_REDBODY: ${{ secrets.YOUTH_REDBODY }}
-        YOUTH_TIME: ${{ secrets.YOUTH_TIME }}
-
-
-
-
-
-
-
-
-
-
-
 
 function GetCookie() {
    if ($request && $request.method != `OPTIONS`&& $request.url.match(/\/TaskCenter\/(sign|getSign)/)) {
