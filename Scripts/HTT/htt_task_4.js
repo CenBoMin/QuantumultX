@@ -107,13 +107,14 @@ result2="重复领取.🐜";
    })
  }
 */
-
+/*
 
 function htt_daysign()
   {
    var result1="";var result2="";
 var tt=huitoutiao;
-const llUrl1 = {url:"https://api.cashtoutiao.com/frontend/sign?"+htt_signurlck,headers:{"Content-Type":"application/json","User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"},body:htt_signbd};var signjs=JSON.parse(htt_signbd);signjs["code"]=sign("%3Dhdfefni");const llUrl2 = {url:"https://api.cashtoutiao.com/frontend/invite?"+htt_signurlck,headers:{"Content-Type":"application/json","User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"},body:signjs};
+const llUrl1 = {url:"https://api.cashtoutiao.com/frontend/sign?"+htt_signurlck,headers:{"Content-Type":"application/json","User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"},body:htt_signbd};var signjs=JSON.parse(htt_signbd);signjs["code"]=sign("%3Dhdfefni");
+const llUrl2 = {url:"https://api.cashtoutiao.com/frontend/invite?"+htt_signurlck,headers:{"Content-Type":"application/json","User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"},body:signjs};
  $iosrule.post(llUrl1, function(error, response, data) {
 
        if(log==1) console.log(data)
@@ -128,6 +129,7 @@ htt_signday(result2);}})
     $iosrule.post(llUrl2, function(error, response, data){})}
 
 
+*/
 
 //目前时段签到失效
 /*
@@ -152,7 +154,7 @@ result2="重复领取🐜";
 */
 
 
-
+/*
 function htt_signday(res)
   {
    var result1="【签到奖励】";var result2="";
@@ -170,7 +172,7 @@ result2=res+"  ✍🏻️[签到天数]"+obj.day;
    htt_msg(result1+"\n"+result2+"\n");
    })
  }
-
+*/
 
 
 
