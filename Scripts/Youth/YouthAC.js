@@ -128,7 +128,7 @@ else if ($.time('HH')>4&&$.time('HH')<8){
 
 
 
-console.log('YOUTH_HEADER:'+YOUTH_HEADERVal+'\n\n\n\n'+'YOUTH_ARTBODY:'+YOUTH_ARTBODYVal+'\n\n\n\n'+'YOUTH_REDBODY:'+YOUTH_REDBODYVal+'\n\n\n\n'+'YOUTH_TIME:'+YOUTH_TIMEVal)
+
 
 
 
@@ -158,6 +158,10 @@ else if ($request && $request.method != `OPTIONS`&& $request.url.match(/\/articl
     $.msg($.name, `获取惊喜红包请求: 成功🎉`, ``)
   }
  }
+
+
+
+ console.log('YOUTH_HEADER:'+signheaderVal+'\n\n\n\n'+'YOUTH_ARTBODY:'+articlebodyVal+'\n\n\n\n'+'YOUTH_REDBODY:'+redpbodyVal+'\n\n\n\n'+'YOUTH_TIME:'+timebodyVal)
 
 function sign() {
     return new Promise((resolve, reject) => {
