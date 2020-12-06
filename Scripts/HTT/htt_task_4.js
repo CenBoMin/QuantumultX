@@ -328,9 +328,9 @@ function htt_coinall()
 
  {
 
- setTimeout(function(){
-   htt_daysign();
- }, 1* 100);
+//setTimeout(function(){
+   //htt_daysign();
+ //}, 1* 100);
 
  //setTimeout(function(){
    //htt_hoursign();
