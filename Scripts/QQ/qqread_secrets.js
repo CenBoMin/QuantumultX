@@ -196,7 +196,6 @@ if ($request && $request.url.indexOf("addReadTimeWithBid?") >= 0) {
 }
 
 
-console.log('QQREAD_BODY:'+qqreadbodyVal+'\n\n\n\n'+'QQREAD_TIMEURL:'+qqreadtimeurlVal+'\n\n\n\n'+'QQREAD_TIMEHD:'+qqreadtimeheaderVal)
 
 
 let K = 0;
@@ -657,6 +656,12 @@ function qqreadpick() {
     }
   });
 }
+
+
+
+
+console.log('QQREAD_BODY:'+qqreadbodyVal+'\n\n\n\n'+'QQREAD_TIMEURL:'+qqreadtimeurlVal+'\n\n\n\n'+'QQREAD_TIMEHD:'+qqreadtimeheaderVal)
+
 
 function showmsg() {
   tz += `\n\n========= 脚本执行-北京时间(UTC+8)：${new Date(
