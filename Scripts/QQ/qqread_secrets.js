@@ -658,9 +658,7 @@ function qqreadpick() {
 }
 
 
-#Secrets
 
-console.log('QQREAD_BODY:'+qqreadbodyVal+'\n\n\n\n'+'QQREAD_TIMEURL:'+qqreadtimeurlVal+'\n\n\n\n'+'QQREAD_TIMEHD:'+qqreadtimeheaderVal)
 
 
 function showmsg() {
@@ -696,6 +694,15 @@ function showmsg() {
   )
     $.msg(jsname, "", tz); // 宝箱每15次通知一次
 }
+
+
+
+
+
+
+#Secrets
+
+console.log('QQREAD_BODY:'+qqreadbodyVal+'\n\n\n\n'+'QQREAD_TIMEURL:'+qqreadtimeurlVal+'\n\n\n\n'+'QQREAD_TIMEHD:'+qqreadtimeheaderVal)
 
 
 // prettier-ignore
