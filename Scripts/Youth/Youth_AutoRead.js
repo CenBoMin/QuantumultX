@@ -43,7 +43,7 @@ console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date
     console.log($.name, '【提示】请把抓包的请求体填入Github 的 Secrets 中，请以&隔开')
     return;
   }
- 
+
   $.msg('', '', `中青body数：${ReadArr.length}个\n上次执行到第${$.begin}个\n预计执行${((ReadArr.length - $.begin) / 120).toFixed(2)}个小时`)
   $.index = 0;
   for (let i = indexLast ? indexLast : 0; i < ReadArr.length; i++) {
@@ -61,7 +61,7 @@ console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date
 
 
 function AutoRead() {
-  
+
   return new Promise((resolve, reject) => {
     let url = {
       url: `https://ios.baertt.com/v5/article/complete.json`,
@@ -91,7 +91,7 @@ function AutoRead() {
       else if (readres.success == false) {
         console.log(`第${$.index}次阅读请求失败`)
       }
-     
+
       resolve()
     })
 
